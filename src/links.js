@@ -77,7 +77,7 @@ export const linksData = [
   {
     type: "link",
     title: "Huguenot High School: Get Involved",
-    url: "https://hhs.rvaschools.net/get-involved/",
+    url: "https://hhs.rvaschools.net/get-involved/pta",
     description: "Opportunities to participate and support Huguenot High School",
     icon: "🦅"
   },
