@@ -18,7 +18,6 @@
   font-weight: bold;
   z-index: 1000;
   transition: top 0.3s;
-  font-size: 1.15em;
 }
 .skip-link:focus {
   top: 6px;
@@ -42,7 +41,6 @@ body {
   min-height: 100vh;
   color: #2c2c2c;
   line-height: 1.6;
-  font-size: 1.15em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,7 +83,7 @@ body {
 
 .profile-name {
   color: #1a1a1a;
-  font-size: min(8.05vw, 3.45rem);
+  font-size: min(7vw, 3rem);
   font-weight: 800;
   margin-bottom: 1.5vw;
   text-transform: uppercase;
@@ -94,7 +92,7 @@ body {
 
 .profile-bio {
   color: #6b7280;
-  font-size: min(4.025vw, 1.29375rem);
+  font-size: min(3.5vw, 1.125rem);
   line-height: 1.5;
   max-width: 70vw;
   margin: 0 auto;
@@ -123,7 +121,7 @@ body {
   position: relative;
   overflow: hidden;
   display: block;
-  font-size: 4.6vw;
+  font-size: 4vw;
   box-shadow: 0 0.2vw 1vw rgba(0,0,0,0.08);
 }
 
@@ -149,13 +147,13 @@ body {
 
 .link-title {
   font-weight: 700;
-  font-size: clamp(1.15rem, 4.6vw, 1.725rem);
+  font-size: clamp(1rem, 4vw, 1.5rem);
   letter-spacing: 0.05vw;
   color: #1a1a1a;
 }
 
 .link-description {
-  font-size: min(3.68vw, 1.15rem);
+  font-size: min(3.2vw, 1rem);
   font-weight: 400;
   color: #6b7280;
   line-height: 1.4;
@@ -164,13 +162,13 @@ body {
 
 .link-icon {
   margin-right: 0.5vw;
-  font-size: 1.035em;
+  font-size: 0.9em;
   color: #0066cc;
 }
 
 .section-heading {
   color: #333;
-  font-size: min(4.025vw, 1.29375rem);
+  font-size: min(3.5vw, 1.125rem);
   font-weight: 700;
   margin-top: 4vw;
   margin-bottom: 1.5vw;
@@ -181,7 +179,7 @@ body {
 
 .section-description {
   color: #6b7280;
-  font-size: 3.105vw;
+  font-size: 2.7vw;
   font-weight: 400;
   text-align: center;
   margin-top: -3vw;
@@ -235,7 +233,7 @@ body {
 
 .contact-section p {
   color: #6b7280;
-  font-size: min(4.83vw, 1.29375rem);
+  font-size: min(4.2vw, 1.125rem);
   line-height: 1.5;
   max-width: 70vw;
   margin: 0 auto;
