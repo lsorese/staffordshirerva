@@ -1,4 +1,4 @@
-import { linksData, profileData } from './links.js';
+import { linksData } from './links.js';
 
 function renderLinks() {
   const container = document.getElementById('links-container');

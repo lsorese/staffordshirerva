@@ -19,7 +19,7 @@ export const linksData = [
     type: "link",
     title: "RVA 311",
     url: "https://www.rva311.com/",
-    description: "You can also call 3-1-1.",
+    description: "You can also call 3-1-1",
     icon: "🚨"
   },
   {
@@ -47,8 +47,3 @@ export const linksData = [
     icon: "💌"
   }
 ];
-
-export const profileData = {
-  name: "Your Name",
-  bio: "Your bio description goes here. Add what you do or what you're passionate about."
-};
