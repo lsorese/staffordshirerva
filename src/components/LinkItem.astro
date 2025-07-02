@@ -4,13 +4,14 @@ export interface Props {
   url: string;
   description?: string;
   icon?: string;
+  highlight?: boolean;
 }
 
-const { title, url, description, icon = '🔗' } = Astro.props;
+const { title, url, description, icon = '🔗', highlight = false } = Astro.props;
 ---
 
 <a 
-  class="link-item" 
+  class={`link-item${highlight ? ' highlight' : ''}`} 
   href={url} 
   target="_blank" 
   rel="noopener noreferrer"

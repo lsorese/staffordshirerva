@@ -4,7 +4,8 @@ export const linksData = [
     title: "Facebook Community",
     url: "https://www.facebook.com/share/g/14MvzNQsSXP/?mibextid=wwXIfr",
     description: "Connect with neighbors and stay informed about community events",
-    icon: "💬"
+    icon: "💬",
+    highlight: true
   },
   {
     type: "heading",

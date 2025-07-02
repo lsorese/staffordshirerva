@@ -232,6 +232,21 @@ body {
   left: 100%;
 }
 
+.link-item.highlight {
+  background: #f8f9fa;
+  border-color: #0066cc;
+  transform: translateY(-0.7vw) scale(1.01);
+  box-shadow: 0 1.2vw 6vw rgba(0, 102, 204, 0.15);
+}
+
+.link-item.highlight:hover,
+.link-item.highlight:focus {
+  background: #f0f4ff;
+  border-color: #0052a3;
+  transform: translateY(-1.2vw) scale(1.03);
+  box-shadow: 0 2vw 8vw rgba(0, 82, 163, 0.25);
+}
+
 .contact-section {
   text-align: center;
   margin-top: 5vw;
