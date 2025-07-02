@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  index: number;
+}
+
+const { title, description, index } = Astro.props;
+---
+
+<h3 class="section-heading" id={`section-${index}`}>
+  {title}
+</h3>
+{description && (
+  <p class="section-description" aria-describedby={`section-${index}`}>
+    {description}
+  </p>
+)}

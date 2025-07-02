@@ -1,0 +1,28 @@
+---
+export interface Props {
+  title: string;
+  url: string;
+  description?: string;
+  icon?: string;
+}
+
+const { title, url, description, icon = '🔗' } = Astro.props;
+---
+
+<a 
+  class="link-item" 
+  href={url} 
+  target="_blank" 
+  rel="noopener noreferrer"
+  aria-label={`${title}${description ? ': ' + description : ''} (opens in new tab)`}
+>
+  <div class="link-content">
+    <div class="link-header">
+      <span class="link-title">
+        <span class="link-icon" aria-hidden="true">{icon}</span>
+        {title}
+      </span>
+    </div>
+    {description && <div class="link-description">{description}</div>}
+  </div>
+</a>

@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LinkItem from '../components/LinkItem.astro';
+import Section from '../components/Section.astro';
+import { linksData } from '../links.js';
+---
+
+<Layout 
+  title="Staffordshire RVA - Community Links" 
+  description="Staffordshire RVA neighborhood information and community links"
+>
+  <section class="profile" aria-labelledby="neighborhood-name">
+    <h1 id="neighborhood-name" class="profile-name">Staffordshire RVA</h1>
+    <p class="profile-bio">Staffordshire is a suburban neighborhood south of the James River on the border of Richmond, Virginia.</p>
+  </section>
+  
+  <section class="links-section" aria-labelledby="community-links-heading">
+    <h2 id="community-links-heading" class="visually-hidden">Community Links</h2>
+    <nav class="links-container" role="navigation" aria-label="Community resources and links">
+      {linksData.map((item, index) => {
+        if (item.type === 'heading') {
+          return <Section title={item.title} description={item.description} index={index} />;
+        } else if (item.type === 'link') {
+          return <LinkItem 
+            title={item.title} 
+            url={item.url} 
+            description={item.description} 
+            icon={item.icon} 
+          />;
+        }
+      })}
+    </nav>
+  </section>
+  
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <h2 id="contact-heading" class="section-heading">Contact Us</h2>
+    <p>For questions or to get involved, please contact the admins of our Facebook group.</p>
+  </section>
+</Layout>
