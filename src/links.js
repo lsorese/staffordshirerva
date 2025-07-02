@@ -41,5 +41,44 @@ export const linksData = [
     title: "Sarah Abubaker's Newsletter",
     url: "https://lp.constantcontactpages.com/sl/eFSdMIF/Fourth",
     icon: "💌"
-  }
+  },
+  {
+    type: "link",
+    title: "Mayor Danny Avula",
+    url: "https://www.rva.gov/mayors-office",
+    icon: "🏛️"
+  },
+  {
+    type: "link",
+    title: "RVA.gov on Instagram",
+    url: "https://www.instagram.com/p/DLkJXpbuzxs/",
+    description: "Follow RVA.gov for city updates and news",
+    icon: "📸"
+  },
+  {
+    type: "heading",
+    title: "Schools & PTA",
+    description: "Support our local elementary school and get involved"
+  },
+  {
+    type: "link",
+    title: "JB Fisher: Parent Teacher Association",
+    url: "https://jbfisherespta.givebacks.com/",
+    description: "Get involved and support JB Fisher Elementary School",
+    icon: "🦩"
+  },
+  {
+    type: "link",
+    title: "Lucille M. Brown Parent News",
+    url: "https://lbms.rvaschools.net/about-us/announcement-details",
+    description: "Stay updated with announcements from Lucille M. Brown Middle School",
+    icon: "🐆"
+  },
+  {
+    type: "link",
+    title: "Huguenot High School: Get Involved",
+    url: "https://hhs.rvaschools.net/get-involved/",
+    description: "Opportunities to participate and support Huguenot High School",
+    icon: "🦅"
+  },
 ];
