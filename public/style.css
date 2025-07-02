@@ -246,3 +246,30 @@ body {
   max-width: 70vw;
   margin: 0 auto;
 }
+
+.footer {
+  text-align: center;
+  margin-top: 4vw;
+  padding: 2.5vw 2vw;
+  border-top: 0.13vw solid #e5e7eb;
+  opacity: 0.7;
+  font-size: 1.045em;
+}
+
+.footer p {
+  color: #6b7280;
+  font-size: min(3.2vw, 0.9rem);
+  margin: 0;
+}
+
+.footer a {
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover,
+.footer a:focus {
+  color: #004499;
+  text-decoration: underline;
+}
