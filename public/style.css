@@ -18,6 +18,7 @@
   font-weight: bold;
   z-index: 1000;
   transition: top 0.3s;
+  font-size: 1.045em;
 }
 .skip-link:focus {
   top: 6px;
@@ -33,6 +34,7 @@
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+  font-size: 1.045em;
 }
 
 body {
@@ -41,6 +43,7 @@ body {
   min-height: 100vh;
   color: #2c2c2c;
   line-height: 1.6;
+  font-size: 1.045em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -62,6 +65,7 @@ body {
   max-width: 90vw;
   margin: 0 auto;
   padding: 3vw 2vw;
+  font-size: 1.045em;
 }
 
 .profile {
@@ -102,6 +106,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2.5vw;
+  font-size: 1.045em;
 }
 
 .link-item {
@@ -121,7 +126,7 @@ body {
   position: relative;
   overflow: hidden;
   display: block;
-  font-size: 4vw;
+  font-size: 4.18vw;
   box-shadow: 0 0.2vw 1vw rgba(0,0,0,0.08);
 }
 
@@ -134,6 +139,7 @@ body {
 
 .link-content {
   text-align: center;
+  font-size: 1.045em;
 }
 
 .link-header {
@@ -143,17 +149,18 @@ body {
   justify-content: center;
   gap: 1vw;
   line-height: 1.2;
+  font-size: 2.1vw;
 }
 
 .link-title {
   font-weight: 700;
-  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-size: 5vw;
   letter-spacing: 0.05vw;
   color: #1a1a1a;
 }
 
 .link-description {
-  font-size: min(3.2vw, 1rem);
+  font-size: min(3.344vw, 1.045rem);
   font-weight: 400;
   color: #6b7280;
   line-height: 1.4;
@@ -162,13 +169,13 @@ body {
 
 .link-icon {
   margin-right: 0.5vw;
-  font-size: 0.9em;
+  font-size: 0.9405em;
   color: #0066cc;
 }
 
 .section-heading {
   color: #333;
-  font-size: min(3.5vw, 1.125rem);
+  font-size: min(3.6575vw, 1.175625rem);
   font-weight: 700;
   margin-top: 4vw;
   margin-bottom: 1.5vw;
@@ -179,7 +186,7 @@ body {
 
 .section-description {
   color: #6b7280;
-  font-size: 2.7vw;
+  font-size: 2.8215vw;
   font-weight: 400;
   text-align: center;
   margin-top: -3vw;
@@ -229,11 +236,12 @@ body {
   text-align: center;
   margin-top: 5vw;
   padding: 3.5vw 2vw;
+  font-size: 1.045em;
 }
 
 .contact-section p {
   color: #6b7280;
-  font-size: min(4.2vw, 1.125rem);
+  font-size: min(4.389vw, 1.175625rem);
   line-height: 1.5;
   max-width: 70vw;
   margin: 0 auto;
