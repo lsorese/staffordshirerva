@@ -3,40 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Links</title>
+  <meta name="description" content="Staffordshire RVA neighborhood information and community links">
+  <title>Staffordshire RVA - Community Links</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="profile">
-      <img src="https://via.placeholder.com/150" alt="Profile" class="profile-image">
-      <h1 class="profile-name">Your Name</h1>
-      <p class="profile-bio">Your bio description goes here. Add what you do or what you're passionate about.</p>
-    </div>
-    
-    <div class="links-container" id="links-container">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <header role="banner">
+    <img src="/photo.jpg" alt="Scenic view of Staffordshire neighborhood showing suburban homes and tree-lined streets" class="profile-image">
+  </header>
+
+  <main id="main-content" role="main">
+    <div class="container">
+      <section class="profile" aria-labelledby="neighborhood-name">
+        <h1 id="neighborhood-name" class="profile-name">Staffordshire RVA</h1>
+        <p class="profile-bio">Staffordshire is a suburban neighborhood south of the James River on the border of Richmond, Virginia.</p>
+      </section>
+      
+      <section class="links-section" aria-labelledby="community-links-heading">
+        <h2 id="community-links-heading" class="visually-hidden">Community Links</h2>
+        <nav class="links-container" id="links-container" role="navigation" aria-label="Community resources and links">
+          <a class="link-item" href="undefined" target="_blank" rel="noopener noreferrer">
+      <span style="margin-right: 8px;">undefined</span>
+      Community & Social
+    </a>
       <a class="link-item" href="https://www.facebook.com/share/g/14MvzNQsSXP/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-      <span style="margin-right: 8px;">🌐</span>
-      Facebook Group
+      <span style="margin-right: 8px;">💬</span>
+      Facebook Community
     </a>
-      <a class="link-item" href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-      <span style="margin-right: 8px;">💻</span>
-      GitHub
+      <a class="link-item" href="undefined" target="_blank" rel="noopener noreferrer">
+      <span style="margin-right: 8px;">undefined</span>
+      Safety & Infrastructure
     </a>
-      <a class="link-item" href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
-      <span style="margin-right: 8px;">🐦</span>
-      Twitter
+      <a class="link-item" href="https://www.rva311.com/" target="_blank" rel="noopener noreferrer">
+      <span style="margin-right: 8px;">🚨</span>
+      RVA 311
     </a>
-      <a class="link-item" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-      <span style="margin-right: 8px;">💼</span>
-      LinkedIn
+      <a class="link-item" href="https://www.rva.gov/sites/default/files/2021-06/Richmond%27s%20Guide%20to%20Being%20a%20Good%20Neighbor%20-%20Web%20Copy.pdf" target="_blank" rel="noopener noreferrer">
+      <span style="margin-right: 8px;">❤️</span>
+      Richmond's Guide to Being a Good Neighbor
     </a>
-      <a class="link-item" href="https://yourblog.com" target="_blank" rel="noopener noreferrer">
-      <span style="margin-right: 8px;">📝</span>
-      Blog
+      <a class="link-item" href="undefined" target="_blank" rel="noopener noreferrer">
+      <span style="margin-right: 8px;">undefined</span>
+      City Council
     </a>
+      <a class="link-item" href="https://sarahabubaker.com/" target="_blank" rel="noopener noreferrer">
+      <span style="margin-right: 8px;">👩‍💼</span>
+      4th District Councilperson Sarah Abubaker
+    </a>
+      <a class="link-item" href="https://lp.constantcontactpages.com/sl/eFSdMIF/Fourth" target="_blank" rel="noopener noreferrer">
+      <span style="margin-right: 8px;">💌</span>
+      Sarah Abubaker's Newsletter
+    </a>
+        </nav>
+      </section>
+      
+      <section class="contact-section" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-heading">Contact Us</h2>
+        <p>For questions or to get involved, please contact the admins of our Facebook group.</p>
+      </section>
     </div>
-  </div>
+  </main>
   
   <script type="module" src="main.js"></script>
 </body>

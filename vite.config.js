@@ -4,7 +4,14 @@ export default defineConfig({
   root: './src',
   build: {
     outDir: '../dist',
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'main.js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]'
+      }
+    }
   },
   server: {
     port: 3000,
