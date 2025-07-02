@@ -51,7 +51,7 @@ export const linksData = [
   {
     type: "link",
     title: "RVA.gov on Instagram",
-    url: "https://www.instagram.com/p/DLkJXpbuzxs/",
+    url: "https://www.instagram.com/rvagov",
     description: "Follow RVA.gov for city updates and news",
     icon: "📸"
   },
