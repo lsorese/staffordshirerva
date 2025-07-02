@@ -69,14 +69,14 @@ export const linksData = [
   },
   {
     type: "link",
-    title: "Lucille M. Brown Parent News",
+    title: "Lucille M. Brown: Parent News",
     url: "https://lbms.rvaschools.net/about-us/announcement-details",
     description: "Stay updated with announcements from Lucille M. Brown Middle School",
     icon: "🐆"
   },
   {
     type: "link",
-    title: "Huguenot High School: Get Involved",
+    title: "Huguenot HS: Get Involved",
     url: "https://hhs.rvaschools.net/get-involved/pta",
     description: "Opportunities to participate and support Huguenot High School",
     icon: "🦅"
