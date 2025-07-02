@@ -36,7 +36,7 @@ export const linksData = [
   },
   {
     type: "link",
-    title: "Fourth District Councilperson Sarah Abubaker",
+    title: "4th District Councilperson Sarah Abubaker",
     url: "https://sarahabubaker.com/",
     icon: "👩‍💼"
   },
