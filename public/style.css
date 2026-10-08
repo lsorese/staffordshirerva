@@ -294,37 +294,70 @@ body {
 }
 
 .event-card {
-  background: #f0f4ff;
-  border: 0.13vw solid #0066cc;
+  display: flex;
+  align-items: stretch;
+  gap: 3vw;
+  background: #fff;
+  border: 0.13vw solid #e5e7eb;
+  border-left: 1.2vw solid #0066cc;
   border-radius: 1vw;
   padding: 3vw;
-  text-align: center;
-  box-shadow: 0 1.2vw 6vw rgba(0, 102, 204, 0.15);
+  box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+}
+
+.event-date {
+  flex: none;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: min(16vw, 80px);
+  padding: 1.5vw 2vw;
+  background: #0066cc;
+  color: #fff;
+  border-radius: 1vw;
+  line-height: 1.1;
+}
+
+.event-month {
+  font-size: min(3.4vw, 1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15vw;
+}
+
+.event-day {
+  font-size: min(8vw, 2.5rem);
+  font-weight: 800;
+}
+
+.event-label {
+  color: #0066cc;
+  font-size: min(3vw, 0.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15vw;
 }
 
 .event-title {
   color: #1a1a1a;
-  font-size: min(6vw, 1.75rem);
+  font-size: min(5.5vw, 1.6rem);
   font-weight: 800;
   line-height: 1.2;
+  margin: 0.5vw 0 1vw;
 }
 
-.event-when {
-  color: #0066cc;
-  font-size: min(4.5vw, 1.25rem);
-  font-weight: 700;
-  margin-top: 1vw;
-}
-
-.event-where {
+.event-meta {
   color: #2c2c2c;
-  font-size: min(4vw, 1.125rem);
+  font-size: min(3.8vw, 1.05rem);
   font-weight: 600;
+  line-height: 1.4;
 }
 
 .event-description {
   color: #6b7280;
-  font-size: min(3.6vw, 1.045rem);
+  font-size: min(3.6vw, 1rem);
+  line-height: 1.4;
   margin-top: 1.5vw;
 }
 

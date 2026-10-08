@@ -5,7 +5,20 @@ import Section from '../components/Section.astro';
 import { linksData } from '../links.js';
 import { events } from '../events.js';
 
-const upcomingEvents = events.filter((e) => new Date(e.hideAfter) > new Date());
+const tz = 'America/New_York';
+const part = (d, opts) => new Intl.DateTimeFormat('en-US', { timeZone: tz, ...opts }).format(d);
+const upcomingEvents = events
+  .filter((e) => new Date(e.hideAfter) > new Date())
+  .map((e) => {
+    const d = new Date(e.start);
+    return {
+      ...e,
+      month: part(d, { month: 'short' }),
+      day: part(d, { day: 'numeric' }),
+      weekday: part(d, { weekday: 'long' }),
+      time: part(d, { hour: 'numeric', minute: '2-digit' }).replace(' AM', ' am').replace(' PM', ' pm'),
+    };
+  });
 ---
 
 <Layout 
@@ -19,13 +32,20 @@ const upcomingEvents = events.filter((e) => new Date(e.hideAfter) > new Date());
   
   {upcomingEvents.length > 0 && (
     <section class="events-section" aria-labelledby="events-heading">
-      <h2 id="events-heading" class="section-heading">Upcoming Event</h2>
+      <h2 id="events-heading" class="visually-hidden">Upcoming Event</h2>
       {upcomingEvents.map((event) => (
         <article class="event-card" data-hide-after={event.hideAfter}>
-          <h3 class="event-title">{event.title}</h3>
-          <p class="event-when">{event.date}</p>
-          <p class="event-where">{event.location}</p>
-          <p class="event-description">{event.description}</p>
+          <div class="event-date" aria-hidden="true">
+            <span class="event-month">{event.month}</span>
+            <span class="event-day">{event.day}</span>
+          </div>
+          <div class="event-details">
+            <p class="event-label">Upcoming Event</p>
+            <h3 class="event-title">{event.title}</h3>
+            <p class="event-meta">{event.weekday}, {event.month} {event.day} &middot; {event.time}</p>
+            <p class="event-meta">{event.location}</p>
+            <p class="event-description">{event.description}</p>
+          </div>
         </article>
       ))}
     </section>
