@@ -9,7 +9,8 @@ Staffordshire is a neighborhood of Richmond, Virginia, just south of the James R
 ## Built With
 
 - **[Astro](https://astro.build/)** - Static site generator
-- **Sass** - CSS preprocessing
+- **Vercel** - Hosting, with server-rendered pages
+- **Upstash Redis** - Stores events and links (via the Vercel Marketplace)
 - **Node.js** - JavaScript runtime
 
 ## Quick Start
@@ -54,15 +55,32 @@ src/
 │   └── Section.astro     # Section heading component
 ├── layouts/
 │   └── Layout.astro      # Base layout template
+├── lib/
+│   ├── auth.js           # Shared-password admin login
+│   ├── events.js         # Read/write events in Redis
+│   ├── links.js          # Read/write/validate links in Redis
+│   ├── redis.js          # Redis client
+│   └── time.js           # Eastern-time helpers
 ├── pages/
-│   └── index.astro       # Homepage
-└── links.js              # Community links data
+│   ├── index.astro       # Homepage (server-rendered)
+│   └── admin.astro       # Admin: manage events and links
+├── events.js             # Fallback events if Redis is unavailable
+└── links.js              # Fallback links, and the starting list if Redis is empty
 ```
 
 ## Deployment
 
-The site is configured for static deployment and can be deployed to any static hosting service like Vercel, Netlify, or GitHub Pages.
+Deployed on Vercel using the `@astrojs/vercel` adapter. The home page and `/admin` are server-rendered; everything else is static.
 
-## Contributing
+## Managing Content
 
-To add or update community links, modify the `src/links.js` file and submit a pull request.
+Events and links are edited at `/admin` (shared password). They are stored in Redis, so changes show on the site within about a minute and no redeploy is needed. Events hide themselves after their date.
+
+`src/links.js` and `src/events.js` are only fallbacks, so they go stale as the admin page is used.
+
+### Environment Variables
+
+- `ADMIN_PASSWORD` - password for `/admin`
+- `KV_REST_API_URL`, `KV_REST_API_TOKEN` - set automatically by the Vercel Upstash integration (or `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`)
+
+Locally, put these in `.env`. Without Redis, the site shows the fallback files and the admin page cannot save.

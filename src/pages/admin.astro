@@ -8,7 +8,7 @@ export const prerender = false;
 
 const MAX = { title: 100, location: 150, description: 500 };
 let error = '';
-let notice = Astro.url.searchParams.get('saved') ? 'Saved.' : '';
+const notice = Astro.url.searchParams.get('saved') ? 'Saved.' : '';
 
 if (Astro.request.method === 'POST' && isConfigured()) {
   const form = await Astro.request.formData();
@@ -228,6 +228,13 @@ Astro.response.headers.set('Cache-Control', 'no-store');
     });
 
     items.forEach(function (item) { list.appendChild(buildRow(item)); });
+
+    document.querySelectorAll('.admin-event').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        var name = form.querySelector('strong').textContent;
+        if (!confirm('Delete "' + name + '"?')) e.preventDefault();
+      });
+    });
 
     function addItem(item) {
       var row = buildRow(item);

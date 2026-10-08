@@ -33,6 +33,8 @@ export function parseLinks(json) {
     return { error: 'Could not read the links list.' };
   }
   if (!Array.isArray(raw) || raw.length > MAX_ITEMS) return { error: `Use at most ${MAX_ITEMS} items.` };
+  // An empty list is almost always a page glitch, and saving it would wipe every link.
+  if (raw.length === 0) return { error: 'Refusing to save an empty list.' };
 
   const text = (v, max) => String(v ?? '').trim().slice(0, max);
   const links = [];

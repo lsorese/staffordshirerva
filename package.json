@@ -13,10 +13,8 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
-    "@astrojs/node": "^9.2.2",
     "@astrojs/vercel": "^8.2.11",
     "@upstash/redis": "^1.39.0",
-    "astro": "^5.10.2",
-    "sass": "^1.89.2"
+    "astro": "^5.10.2"
   }
 }
