@@ -378,3 +378,76 @@ body {
   font-size: min(3.6vw, 1.045rem);
   margin-top: 1vw;
 }
+
+.admin {
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.admin-form,
+.admin-event {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.admin input,
+.admin textarea {
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+}
+
+.admin button {
+  font: inherit;
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+  background: #0066cc;
+  color: #fff;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.admin button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-event {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-logout {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.admin-logout button {
+  background: #6b7280;
+}
+
+.admin-error {
+  color: #b91c1c;
+  margin-bottom: 1rem;
+}
+
+.admin-notice {
+  color: #15803d;
+  margin-bottom: 1rem;
+}

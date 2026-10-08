@@ -2,9 +2,10 @@
 export interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@ const { title, description } = Astro.props;
   <meta property="twitter:image" content="https://staffordshirerva.org/photo.jpg">
   
   <!-- Additional SEO -->
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"}>
   <meta name="author" content="Staffordshire RVA Community">
   <link rel="canonical" href="https://staffordshirerva.org/">
   

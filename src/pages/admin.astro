@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { isConfigured, checkPassword, isLoggedIn, logIn, logOut } from '../lib/auth.js';
+import { getEvents, addEvent, deleteEvent, hasDatabase } from '../lib/events.js';
+
+export const prerender = false;
+
+const MAX = { title: 100, location: 150, description: 500 };
+let error = '';
+let notice = Astro.url.searchParams.get('saved') ? 'Saved.' : '';
+
+if (Astro.request.method === 'POST' && isConfigured()) {
+  const form = await Astro.request.formData();
+  const action = form.get('action');
+  const clean = (name) => String(form.get(name) ?? '').trim();
+
+  if (action === 'login') {
+    if (await checkPassword(form.get('password'))) {
+      await logIn(Astro.cookies);
+      return Astro.redirect('/admin');
+    }
+    error = 'Wrong password.';
+  } else if (await isLoggedIn(Astro.cookies)) {
+    if (action === 'logout') {
+      logOut(Astro.cookies);
+      return Astro.redirect('/admin');
+    } else if (action === 'delete' && hasDatabase) {
+      await deleteEvent(clean('id'));
+      return Astro.redirect('/admin?saved=1');
+    } else if (action === 'add' && hasDatabase) {
+      const event = {
+        title: clean('title').slice(0, MAX.title),
+        date: clean('date'),
+        time: clean('time'),
+        location: clean('location').slice(0, MAX.location),
+        description: clean('description').slice(0, MAX.description)
+      };
+      if (!event.title || !/^\d{4}-\d{2}-\d{2}$/.test(event.date) || !/^\d{2}:\d{2}$/.test(event.time)) {
+        error = 'Title, date and time are required.';
+      } else {
+        await addEvent(event);
+        return Astro.redirect('/admin?saved=1');
+      }
+    }
+  }
+}
+
+const loggedIn = await isLoggedIn(Astro.cookies);
+const events = loggedIn ? await getEvents() : [];
+const when = (iso) =>
+  new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York', dateStyle: 'full', timeStyle: 'short'
+  }).format(new Date(iso));
+
+Astro.response.headers.set('Cache-Control', 'no-store');
+---
+
+<Layout title="Admin - Staffordshire RVA" description="Manage events" noindex>
+  <section class="admin">
+    <h1 class="profile-name">Admin</h1>
+
+    {!isConfigured() && <p class="admin-error">Set the ADMIN_PASSWORD environment variable to enable this page.</p>}
+    {error && <p class="admin-error" role="alert">{error}</p>}
+    {notice && <p class="admin-notice" role="status">{notice}</p>}
+
+    {isConfigured() && !loggedIn && (
+      <form method="post" class="admin-form">
+        <input type="hidden" name="action" value="login">
+        <label>Password <input type="password" name="password" required autocomplete="current-password"></label>
+        <button type="submit">Log in</button>
+      </form>
+    )}
+
+    {loggedIn && (
+      <>
+        {!hasDatabase && <p class="admin-error">Redis is not connected, so events cannot be saved yet.</p>}
+
+        <h2 class="section-heading">Add an event</h2>
+        <form method="post" class="admin-form">
+          <input type="hidden" name="action" value="add">
+          <label>Title <input name="title" required maxlength={MAX.title}></label>
+          <label>Date <input type="date" name="date" required></label>
+          <label>Start time <input type="time" name="time" required></label>
+          <label>Location <input name="location" maxlength={MAX.location}></label>
+          <label>Description <textarea name="description" rows="3" maxlength={MAX.description}></textarea></label>
+          <button type="submit" disabled={!hasDatabase}>Add event</button>
+        </form>
+
+        <h2 class="section-heading">Upcoming events</h2>
+        {events.length === 0 && <p class="admin-empty">None yet.</p>}
+        {events.map((e) => (
+          <form method="post" class="admin-event">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="id" value={e.id}>
+            <div>
+              <strong>{e.title}</strong><br>
+              <span>{when(e.start)}</span>
+            </div>
+            {e.id && <button type="submit" disabled={!hasDatabase}>Delete</button>}
+          </form>
+        ))}
+
+        <form method="post" class="admin-logout">
+          <input type="hidden" name="action" value="logout">
+          <button type="submit">Log out</button>
+        </form>
+      </>
+    )}
+  </section>
+</Layout>

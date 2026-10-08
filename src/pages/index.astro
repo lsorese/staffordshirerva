@@ -3,13 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import LinkItem from '../components/LinkItem.astro';
 import Section from '../components/Section.astro';
 import { linksData } from '../links.js';
-import { events } from '../events.js';
+import { getEvents } from '../lib/events.js';
 
+export const prerender = false;
+
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+
+const events = await getEvents();
 const tz = 'America/New_York';
 const part = (d, opts) => new Intl.DateTimeFormat('en-US', { timeZone: tz, ...opts }).format(d);
-const upcomingEvents = events
-  .filter((e) => new Date(e.hideAfter) > new Date())
-  .map((e) => {
+const upcomingEvents = events.map((e) => {
     const d = new Date(e.start);
     return {
       ...e,
@@ -43,8 +46,8 @@ const upcomingEvents = events
             <p class="event-label">Upcoming Event</p>
             <h3 class="event-title">{event.title}</h3>
             <p class="event-meta">{event.weekday}, {event.month} {event.day} &middot; {event.time}</p>
-            <p class="event-meta">{event.location}</p>
-            <p class="event-description">{event.description}</p>
+            {event.location && <p class="event-meta">{event.location}</p>}
+            {event.description && <p class="event-description">{event.description}</p>}
           </div>
         </article>
       ))}
