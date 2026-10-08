@@ -288,3 +288,60 @@ body {
   color: #004499;
   text-decoration: underline;
 }
+
+.events-section {
+  margin-bottom: 4vw;
+}
+
+.event-card {
+  background: #f0f4ff;
+  border: 0.13vw solid #0066cc;
+  border-radius: 1vw;
+  padding: 3vw;
+  text-align: center;
+  box-shadow: 0 1.2vw 6vw rgba(0, 102, 204, 0.15);
+}
+
+.event-title {
+  color: #1a1a1a;
+  font-size: min(6vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.event-when {
+  color: #0066cc;
+  font-size: min(4.5vw, 1.25rem);
+  font-weight: 700;
+  margin-top: 1vw;
+}
+
+.event-where {
+  color: #2c2c2c;
+  font-size: min(4vw, 1.125rem);
+  font-weight: 600;
+}
+
+.event-description {
+  color: #6b7280;
+  font-size: min(3.6vw, 1.045rem);
+  margin-top: 1.5vw;
+}
+
+.qr-section {
+  text-align: center;
+  margin-top: 4vw;
+}
+
+.qr-code {
+  width: min(40vw, 200px);
+  height: auto;
+  border: 0.13vw solid #e5e7eb;
+  border-radius: 1vw;
+}
+
+.qr-url {
+  color: #6b7280;
+  font-size: min(3.6vw, 1.045rem);
+  margin-top: 1vw;
+}

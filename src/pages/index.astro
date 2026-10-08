@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import LinkItem from '../components/LinkItem.astro';
 import Section from '../components/Section.astro';
 import { linksData } from '../links.js';
+import { events } from '../events.js';
+
+const upcomingEvents = events.filter((e) => new Date(e.hideAfter) > new Date());
 ---
 
 <Layout 
@@ -14,6 +17,20 @@ import { linksData } from '../links.js';
     <p class="profile-bio">Staffordshire is a neighborhood of Richmond, Virginia, just south of the James River, near Bon Air.</p>
   </section>
   
+  {upcomingEvents.length > 0 && (
+    <section class="events-section" aria-labelledby="events-heading">
+      <h2 id="events-heading" class="section-heading">Upcoming Event</h2>
+      {upcomingEvents.map((event) => (
+        <article class="event-card" data-hide-after={event.hideAfter}>
+          <h3 class="event-title">{event.title}</h3>
+          <p class="event-when">{event.date}</p>
+          <p class="event-where">{event.location}</p>
+          <p class="event-description">{event.description}</p>
+        </article>
+      ))}
+    </section>
+  )}
+
   <section class="links-section" aria-labelledby="community-links-heading">
     <h2 id="community-links-heading" class="visually-hidden">Staffordshire RVA</h2>
     <nav class="links-container" role="navigation" aria-label="Community resources and links">
@@ -37,4 +54,20 @@ import { linksData } from '../links.js';
     <h2 id="contact-heading" class="section-heading">Contact Us</h2>
     <p>For questions or to get involved, please contact the admins of our Facebook group.</p>
   </section>
+
+  <section class="qr-section" aria-labelledby="qr-heading">
+    <h2 id="qr-heading" class="section-heading">Share This Site</h2>
+    <img src="/qr.svg" alt="QR code linking to staffordshirerva.org" class="qr-code" width="200" height="200">
+    <p class="qr-url">staffordshirerva.org</p>
+  </section>
 </Layout>
+
+<script is:inline>
+  // Hide expired events even if the page was built before they expired.
+  var now = new Date();
+  document.querySelectorAll('[data-hide-after]').forEach(function (el) {
+    if (new Date(el.getAttribute('data-hide-after')) <= now) el.remove();
+  });
+  var section = document.querySelector('.events-section');
+  if (section && !section.querySelector('.event-card')) section.remove();
+</script>
