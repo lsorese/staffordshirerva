@@ -451,3 +451,86 @@ body {
   color: #15803d;
   margin-bottom: 1rem;
 }
+
+.admin-help {
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.links-editor {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.links-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #fafafa;
+}
+
+.links-row.is-heading {
+  background: #eef4ff;
+  border-color: #b3d1f5;
+}
+
+.links-row.dragging {
+  opacity: 0.4;
+}
+
+.links-handle {
+  cursor: grab;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.25rem;
+  user-select: none;
+  color: #6b7280;
+}
+
+.links-fields {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.links-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.85rem;
+}
+
+.links-fields .links-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.links-kind {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #0066cc;
+}
+
+.links-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.links-controls button {
+  padding: 0.35rem 0.6rem;
+}
+
+.links-editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
